@@ -143,7 +143,7 @@ class matrix:
 def filter(x, P):
     for n in range(len(measurements)):
         # measurement update
-		Z = matrix([[1.]]) # measurement uncertainty
+	Z = matrix([[1.]]) # measurement uncertainty
         y = Z - (H * x)
         S = H * P * H.transpose() + R
         K = P * H.transpose() * S.inverse()

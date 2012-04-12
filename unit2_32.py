@@ -141,22 +141,22 @@ class matrix:
 # Implement the filter function below
 
 def filter(x, P):
-    for n in range(len(measurements)):
+	for n in range(len(measurements)):
         # measurement update
-	Z = matrix([[1.]]) # measurement uncertainty
-        y = Z - (H * x)
-        S = H * P * H.transpose() + R
-        K = P * H.transpose() * S.inverse()
-        x = x + (K*y)
-        P = (I - K*H) * P
-        # prediction
-        x = F * x + u
-        P = F * P * F.transpose()
-        
-        print('x= ')
-        x.show()
-        print('P= ')
-        P.show()
+		Z = matrix([[measurements[n]]]) 
+		y = Z - (H * x)
+		S = H * P * H.transpose() + R
+		K = P * H.transpose() * S.inverse()
+		x = x + (K*y)
+		P = (I - K*H) * P
+		# prediction
+		x = F * x + u
+		P = F * P * F.transpose()
+
+		print('x= ')
+		x.show()
+		print('P= ')
+		P.show()
 
 
 
